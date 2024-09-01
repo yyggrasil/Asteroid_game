@@ -1,4 +1,4 @@
-import pygame # type: ignore
+import pygame
 import random
 from constants import *
 from circleshape import CircleShape

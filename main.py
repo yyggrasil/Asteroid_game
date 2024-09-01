@@ -1,4 +1,4 @@
-import pygame # type: ignore
+import pygame
 from constants import *
 from player import Player
 from asteroid import Asteroid
@@ -44,6 +44,11 @@ def main():
             object.draw(screen)
 
         pygame.display.flip()
+        
+        for aste in asteroids:
+            if player.collision(aste):
+                print("Game Over!")
+                return
 
         dt = clock.tick(60) / 1000 # get the maximum of 60 fps and returns the delta time
         
