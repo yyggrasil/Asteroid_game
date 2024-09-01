@@ -1,7 +1,4 @@
-# this allows us to use code from
-# the open-source pygame library
-# throughout this file
-import pygame
+import pygame # type: ignore
 from constants import *
 from player import Player
 from asteroid import Asteroid
@@ -27,6 +24,10 @@ def main():
 
     # inicialize asteroid
     Asteroid.containers = (updateble, drawable, asteroids)
+
+    # incialize asteroid field
+    AsteroidField.containers = (updateble)
+    asteroid_field = AsteroidField()
 
     while True:
         # quit when press the x on the window
