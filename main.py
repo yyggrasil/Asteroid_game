@@ -6,6 +6,10 @@ from constants import *
 
 def main():
     pygame.init()
+
+    clock = pygame.time.Clock()
+    dt = 0
+
     pygame.display.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
@@ -17,6 +21,10 @@ def main():
 
         pygame.Surface.fill(screen, color=BLACK)
         pygame.display.flip()
+
+        dt = clock.tick(60) / 1000 # get the maximum of 60 fps and returns the delta time
+        
+
     
 
 
