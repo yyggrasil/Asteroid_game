@@ -2,9 +2,10 @@
 # the open-source pygame library
 # throughout this file
 import pygame
-import circleshape
 from constants import *
 from player import Player
+from asteroid import Asteroid
+from asteroidfield import AsteroidField
 
 
 def main():
@@ -18,10 +19,14 @@ def main():
 
     updateble = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
+    asteroids = pygame.sprite.Group()
 
     # inicialize player
     Player.containers = (updateble, drawable)
     player = Player(SCREEN_WIDTH/2, SCREEN_HEIGHT/2, 20)
+
+    # inicialize asteroid
+    Asteroid.containers = (updateble, drawable, asteroids)
 
     while True:
         # quit when press the x on the window
@@ -37,16 +42,10 @@ def main():
         for object in drawable:
             object.draw(screen)
 
-
         pygame.display.flip()
 
         dt = clock.tick(60) / 1000 # get the maximum of 60 fps and returns the delta time
         
-
-    
-
-
-
 
 if __name__ == "__main__":
     main()
