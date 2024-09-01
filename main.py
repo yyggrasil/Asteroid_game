@@ -16,9 +16,12 @@ def main():
     pygame.display.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
-    # inicialize player
-    player = Player(SCREEN_WIDTH/2, SCREEN_HEIGHT/2, 20)
+    updateble = pygame.sprite.Group()
+    drawable = pygame.sprite.Group()
 
+    # inicialize player
+    Player.containers = (updateble, drawable)
+    player = Player(SCREEN_WIDTH/2, SCREEN_HEIGHT/2, 20)
 
     while True:
         # quit when press the x on the window
@@ -28,8 +31,11 @@ def main():
 
         pygame.Surface.fill(screen, color=BLACK)
 
-        player.update(dt)
-        player.draw(screen)
+        for object in updateble:
+            object.update(dt)
+        
+        for object in drawable:
+            object.draw(screen)
 
 
         pygame.display.flip()
