@@ -28,6 +28,7 @@ def main():
 
         pygame.Surface.fill(screen, color=BLACK)
 
+        player.update(dt)
         player.draw(screen)
 
 
