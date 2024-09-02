@@ -31,8 +31,7 @@ def main():
 
     # incialize asteroid field
     AsteroidField.containers = (updateble)
-    asteroid_field = AsteroidField()
-
+    AsteroidField()
     # inicialize bullets
     Shot.containers = (updateble, drawable, shots)
 
@@ -56,6 +55,10 @@ def main():
             if player.collision(aste):
                 print("Game Over!")
                 return
+            for bullet in shots:
+                if aste.collision(bullet):
+                    aste.kill()
+                    break
 
         dt = clock.tick(60) / 1000 # get the maximum of 60 fps and returns the delta time
         
