@@ -57,7 +57,8 @@ def main():
                 return
             for bullet in shots:
                 if aste.collision(bullet):
-                    aste.kill()
+                    aste.split()
+                    bullet.kill()
                     break
 
         dt = clock.tick(60) / 1000 # get the maximum of 60 fps and returns the delta time
